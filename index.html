@@ -1,0 +1,312 @@
+<?php $injectedData = array (
+  'baseUrlForJs' => 'http://localhost/undangan-digital/public',
+  'ogTitle' => 'The Wedding of Hendri & Putri',
+  'ogDescription' => 'Kami mengundang Anda untuk hadir di acara pernikahan kami.',
+  'ogImageRelativePath' => 'images/cover-bg.jpg',
+  'slug' => 'putri-dan-hendri',
+  'packageType' => 'Premium',
+  'eventDateTime' => '2099-01-01T00:00:00',
+); ?>
+<?php
+// Blok ini akan diisi secara otomatis oleh sistem saat di-upload.
+// Jangan diubah.
+$injectedData = $injectedData ?? []; // Menghindari error jika diakses langsung
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <?php
+        $title = $injectedData['ogTitle'] ?? 'Undangan Pernikahan';
+        $description = $injectedData['ogDescription'] ?? 'Sebuah undangan spesial untuk Anda.';
+        $imageUrl = '';
+        if (!empty($injectedData['ogImageRelativePath'])) {
+            $imageUrl = ($injectedData['baseUrlForJs'] ?? '') . '/undangan/' . ($injectedData['slug'] ?? '') . '/' . $injectedData['ogImageRelativePath'];
+        }
+    ?>
+    <!-- Judul & Deskripsi Halaman -->
+    <title><?= htmlspecialchars($title) ?></title>
+    <meta name="description" content="<?= htmlspecialchars($description) ?>">
+    <!-- Meta Tags Open Graph -->
+    <meta property="og:title" content="<?= htmlspecialchars($title) ?>" />
+    <meta property="og:description" content="<?= htmlspecialchars($description) ?>" />
+    <meta property="og:type" content="website" />
+    <?php if (!empty($imageUrl)): ?>
+    <meta property="og:image" content="<?= htmlspecialchars($imageUrl) ?>" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <?php endif; ?>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	 <link rel="stylesheet" href="style.css">
+</head>
+<style>
+
+</style>
+<body>
+    <!-- Opening Cover -->
+    <div id="opening-cover" class="opening-cover">
+       <p class="animate-fade-in-up">Wedding Invitation</p>        
+        <h1 class="animate-fade-in">Putri & Hendri</h1>
+        <p class="animate-fade-in-up">Senin, 22 September 2025</p>
+        <div class="guest-greeting-cover">
+            <p>Kepada Yth. <br>Bapak/Ibu/Saudara/i</p>
+            <h3 id="guest-name-display">Tamu Undangan</h3>
+        </div>
+        <button id="open-invitation-btn" type="button">Buka Undangan</button>
+    </div>
+   
+    <!-- Background Music -->
+    <audio id="background-music" loop src="audio/music.mp3"></audio>
+    
+    <!-- Music Player -->
+    <div id="music-player" class="music-player" style="display: none;">
+        <i class="fas fa-play icon-play"></i>
+        <i class="fas fa-pause icon-pause"></i>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="animated">Putri & Hendri</h1>
+                <p class="animated" style="transition-delay: 0.2s;">Dua hati yang bersatu dalam cinta</p>
+                <div class="hero-date animated" style="transition-delay: 0.4s;">Senin, 22 September 2025</div>
+            </div>
+        </section>
+
+        <section id="couple" class="couple">
+            <div class="container">
+                
+                <div class="section-title animate-fade-in-up">
+                    <p>"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."<br>(QS. Ar-Rum: 21)</p>
+                </div>
+
+                <div class="couple-container">
+                    <div class="couple-info animated" style="transition-delay: 0.2s;">
+                        <div class="couple-photo">
+                            <img src="images/gallery1.jpg" alt="foto mempelai">
+                        </div>
+                            <h3 class="couple-name">Putri Dini Hidayati</h3>
+                        <div class="couple-title">Putri sulung dari</div>
+                            <p class="couple-desc">Bapak Tatang Suntaka & Ibu Sunengsih</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                    <div class="couple-info animated" style="transition-delay: 0.4s;">
+                        <div class="couple-photo">
+                            <img src="images/gallery1.jpg" alt="foto mempelai">
+                        </div>
+                            <h3 class="couple-name">Hendri Kurniawan</h3>
+                        <div class="couple-title">Putri bungsu dari</div>
+                            <p class="couple-desc">Bapak Sahidun & Ibu Yanti</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="section section-light">
+            <div class="container">
+                <h2 style="margin-top: 50px;" class="animate-fade-in-up">Menuju Hari Bahagia</h2>
+                <div id="countdown" class="countdown-container animate-fade-in-up"></div>
+            </div>
+        </section>
+        
+        <!-- Event Details Section -->
+        <section class="section section-dark">
+            <div class="container">
+                <h2 class="animate-fade-in">Detail Acara</h2>
+                <div class="event-grid">
+                    <div class="event-card animate-fade-in-up">
+                        <div class="event-icon"><i class="fas fa-ring"></i></div>
+                        <h3>Akad Nikah</h3>
+                        <p><strong>Senin</strong>
+                        </br>22 September 2025</p>
+                        <p><strong>Waktu</strong>
+                        </br>Pukul : 08:00 WIB s.d selesai</p>                        
+                    </div>
+                    <div class="event-card animate-fade-in-up"> 
+                        <div class="event-icon"><i class="fas fa-glass-cheers"></i></i></div>
+                        <h3>Resepsi</h3>
+                        <p><strong>Senin</strong>
+                        </br>22 September 2025</p>
+                        <p><strong>Waktu</strong>
+                        </br>Pukul : 09:00 WIB s.d selesai</p>                        
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <div class="event-card animate-fade-in-up">
+                        <p><strong>Lokasi:</strong></p>
+                        <p> Jalan Hawur Cucuk Rt. 09. Rw. 03 Blok III Ds. Dukuhdalem Kec. Japara Kab. Kuningan</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.011075089284!2d106.8248386147164!3d-6.262274995468758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f268b3558f6b%3A0x2d1c6f3711316b1e!2sBalai%20Kartini!5e0!3m2!1sen!2sid!4v1630325234567" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- Love Story Section -->
+        <section class="section section-light">
+            <div class="container">
+                <div class="love-story-minimalist">
+                    <div class="chapter-info">
+                        <div class="chapter-number">Chapter One</div>
+                        <div class="chapter-date">SEPTEMBER 22 / 2025</div>
+                    </div>
+                    <div class="main-text">
+                        <h1 class="couple-names">P & H</h1>
+                        <p class="story-paragraph">
+                        "The city lights blurred as we drove, but your smile was the only thing
+                        in perfect focus. That night, under the stars, our story truly began."
+                        </p>
+                        <p class="story-paragraph">
+                        "The city lights blurred as we drove, but your smile was the only thing
+                        in perfect focus. That night, under the stars, our story truly began."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section id="gallery-section" class="section section-dark">
+            <div class="container">
+                <h2 class="animate-fade-in">Galeri Kenangan</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item animate-fade-in-up" data-index="0">
+                        <img src="images/gallery1.jpg" alt="Foto 1">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-fade-in-up" data-index="1">
+                        <img src="images/gallery2.jpg" alt="Foto 2">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-fade-in-up" data-index="2">
+                        <img src="images/gallery3.jpg" alt="Foto 3">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-fade-in-up" data-index="3">
+                        <img src="images/gallery4.jpg" alt="Foto 4">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-fade-in-up" data-index="4">
+                        <img src="images/gallery5.jpg" alt="Foto 5">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-fade-in-up" data-index="5">
+                        <img src="images/gallery6.jpg" alt="Foto 6">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="gallery-upgrade-message"></div>
+            </div>
+        </section>
+
+        <!-- Gift Section -->
+        <section class="section section-light">
+            <div class="container">
+                <h2 class="animate-fade-in">Hadiah Pernikahan</h2>
+                <p class="animate-fade-in-up" style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Doa restu Anda adalah hadiah terindah. Namun jika ingin memberikan tanda kasih, kami menyediakan opsi berikut:</p>
+                <div class="gift-container">
+                    <div class="gift-card animate-fade-in-up">
+                        <div class="event-icon"><i class="fas fa-wallet"></i></div>
+                        <h3></i> Bank BCA</h3>
+                        <div class="bank-info">
+                            <p>BCA</p>
+                            <p class="account-number">1234567890</p>
+                            <p>Putri Dini Hidayati</p>
+                            <button class="copy-btn" data-bank="BCA" data-account="1234567890" data-name="Putri Dini Hidayati">Salin No. Rekening</button>
+                        </div>
+                    </div>
+                    <div class="gift-card animate-fade-in-up">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Guest Book & Wishes Section -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="guest-book">
+                    <div id="guest-book-container" class="animate-fade-in-up"><p>Memuat formulir...</p></div>
+                    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+                    <div id="wishes-list-container" class="animate-fade-in-up">
+                        <h4>Ucapan Terbaru:</h4>
+                        <div class="wish-item"><p>Memuat ucapan...</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <h3>Terima Kasih</h3>
+                    <p>Atas doa dan restu Bapak/Ibu/Saudara/i sekalian. Kami mengucapkan banyak terima kasih atas perhatian dan partisipasi Anda dalam hari bahagia kami.</p>
+                    <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    
+                    <div class="footer-bottom">
+                        <p>&copy; <?= date('Y') ?> Pernikahan Budi & Ana. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Modal Gallery -->
+    <div id="gallery-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div class="modal-nav">
+            <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+    
+    <script>
+        const injectedData = <?= json_encode($injectedData ?? []) ?>;
+        const BASE_URL = injectedData.baseUrlForJs || '';
+        const PACKAGE_TYPE = injectedData.packageType || 'Free';
+    </script>
+    
+<script src="script.js"></script>
+
+</body>
+</html>
