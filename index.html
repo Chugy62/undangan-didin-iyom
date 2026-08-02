@@ -1,157 +1,267 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Tasyakuran Khitanan</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Undangan Tasyakuran Khitanan - Fathir</title>
+
+    <!-- ===== OPEN GRAPH TAGS UNTUK PREVIEW WHATSAPP / SOSMED ===== -->
+    <meta property="og:title" content="Undangan Tasyakuran Khitan - Ahmad Al-Fatih">
+    <meta property="og:description" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir. Klik untuk buka undangan.">
+    <meta property="og:image" content="https://chugy62.github.io/undangan-didin-iyom/thumbnail.jpg">
+    <meta property="og:url" content="https://chugy62.github.io/undangan-didin-iyom/">
+    <meta property="og:type" content="website">	
+		
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'Poppins', sans-serif; }
-        .font-title { font-family: 'Playfair Display', serif; }
-    </style>
-</head>
-<body class="bg-slate-900 text-slate-800 flex justify-center items-center min-h-screen m-0 p-0">
-
-    <!-- Audio Background (Ganti 'music.mp3' dengan nama file musik Anda) -->
-    <audio id="bg-music" loop>
-        <source src="music.mp3" type="audio/mp3">
-        Browser Anda tidak mendukung elemen audio.
-    </audio>
-
-    <!-- Wrapper Khusus Mobile-First (Maksimal Lebar seperti Handphone) -->
-    <div id="app-container" class="w-full max-w-md bg-emerald-50 min-h-screen shadow-2xl relative overflow-hidden flex flex-col">
-
-        <!-- ================= COVER SECTION ================= -->
-        <div id="cover-section" class="absolute inset-0 z-50 bg-gradient-to-br from-emerald-900 to-slate-900 text-white flex flex-col justify-between items-center p-8 text-center transition-transform duration-700 ease-in-out">
-            <div class="my-auto">
-                <span class="text-xs uppercase tracking-widest bg-emerald-700 px-3 py-1 rounded-full text-emerald-100 font-medium">Undangan Tasyakuran Khitan</span>
-                <h1 class="font-title text-4xl font-bold mt-6 mb-2 text-amber-300">Ahmad Al-Fatih</h1>
-                <p class="text-sm text-emerald-200 mb-8">Putra dari Bapak & Ibu (Nama Orang Tua)</p>
-                
-                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 mb-8">
-                    <p class="text-xs text-slate-300 mb-1">Kepada Yth:</p>
-                    <p id="guest-name" class="font-semibold text-lg text-amber-200">Tamu Undangan</p>
-                    <p class="text-[11px] text-slate-300 mt-1">Mohon maaf apabila ada kesalahan penulisan nama/gelar</p>
-                </div>
-            </div>
-
-            <button id="open-invitation" class="w-full py-3 px-6 bg-amber-400 hover:bg-amber-500 text-slate-950 font-semibold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.5.75-1.5-.75" />
-                </svg>
-                Buka Undangan
-            </button>
-        </div>
-
-        <!-- ================= MAIN INVITATION CONTENT ================= -->
-        <div class="flex-1 overflow-y-auto">
-            <!-- Hero / Header Section -->
-            <section class="relative bg-gradient-to-b from-emerald-800 to-emerald-950 text-white py-16 px-6 text-center">
-                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d1fae5_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                <div class="relative z-10">
-                    <h2 class="text-xs uppercase tracking-widest text-amber-300 font-semibold mb-2">Syukuran Khitanan</h2>
-                    <h1 class="font-title text-3xl font-bold mb-4">Ahmad Al-Fatih</h1>
-                    <p class="text-sm text-emerald-100 italic max-w-xs mx-auto">"Semoga menjadi anak yang sholeh, berbakti kepada orang tua, dan berguna bagi agama serta bangsa."</p>
-                </div>
-            </section>
-
-            <!-- Detail Acara Section -->
-            <section class="py-12 px-6 text-center">
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-emerald-100 mb-6">
-                    <h3 class="font-title text-xl font-bold text-emerald-900 mb-4">Waktu & Tempat</h3>
-                    
-                    <div class="space-y-4 text-sm text-slate-700">
-                        <div>
-                            <p class="font-semibold text-emerald-800">Hari / Tanggal</p>
-                            <p>Minggu, 15 November 2026</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-emerald-800">Pukul</p>
-                            <p>10.00 WIB s.d. Selesai</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-emerald-800">Lokasi / Alamat</p>
-                            <p>Kediaman Bapak Fatih, Jl. Merdeka No. 123, Kota Bandung</p>
-                        </div>
-                    </div>
-
-                    <a href="https://maps.google.com" target="_blank" class="mt-6 inline-block bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-medium py-2.5 px-5 rounded-lg shadow transition">
-                        📍 Buka Google Maps
-                    </a>
-                </div>
-            </section>
-
-            <!-- Doa & Penutup -->
-            <section class="bg-emerald-900 text-white py-10 px-6 text-center">
-                <h3 class="font-title text-lg font-bold text-amber-300 mb-2">Terima Kasih</h3>
-                <p class="text-xs text-emerald-200 leading-relaxed">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
-                <p class="mt-6 text-xs text-emerald-400 font-medium">Keluarga Besar Bpk. Fatih</p>
-            </section>
-        </div>
-
-        <!-- ================= FLOATING MUSIC TOGGLE BUTTON ================= -->
-        <button id="music-toggle" class="absolute bottom-5 right-5 z-40 bg-emerald-800 text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center border-2 border-amber-300 transition-all hover:scale-110 hidden">
-            🎵
-        </button>
-
-    </div>
-
-    <!-- ================= JAVASCRIPT LOGIC ================= -->
-    <script>
-        // 1. Logika Custom Guest Name dari URL Parameter (?to=Nama+Tamu)
-        const urlParams = new URLSearchParams(window.location.search);
-        const guestName = urlParams.get('to');
-        if (guestName) {
-            document.getElementById('guest-name').textContent = decodeURIComponent(guestName);
+        :root {
+            --primary: #2c3e50;
+            --accent: #d4af37;
+            --light: #f9f9f9;
         }
 
-        // 2. Logika Cover, Animasi Masuk, & Musik
-        const coverSection = document.getElementById('cover-section');
-        const openBtn = document.getElementById('open-invitation');
-        const bgMusic = document.getElementById('bg-music');
-        const musicToggle = document.getElementById('music-toggle');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--primary); 
+			background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1)), url('bg-3.jpg');			
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+        /* COVER LOGIC */
+        #cover {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bg-3.jpg') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; z-index: 9999; transition: transform 0.8s ease-in-out;
+            text-align: center; padding: 20px;
+        }
+
+        #cover.hidden { transform: translateY(-100%); }
+
+		.profile-container {
+			margin: 20px 0;
+		}
+
+		.profile-img {
+			width: 180px; /* Ukuran lebar */
+			height: 180px; /* Ukuran tinggi harus sama dengan lebar agar bulat sempurna */
+			border-radius: 50%; /* Membuat gambar jadi bulat */
+			border: 4px solid var(--accent); /* Frame emas di sekeliling foto */
+			object-fit: cover; /* Agar foto tidak gepeng jika rasionya beda */
+			box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+		}
+
+		/* Penyesuaian untuk Mobile */
+		@media (max-width: 600px) {
+			.profile-img {
+				width: 150px;
+				height: 150px;
+			}
+		}
+
+		#home {
+			background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1)), url('bg-3.jpg');			
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		/* Penyesuaian untuk Mobile agar background tidak berat */
+		@media (max-width: 600px) {
+			#home {
+				background-attachment: scroll; /* Matikan fixed di mobile agar smooth */
+			}
+		}
+
+
+        .guest-box { margin-top: 20px; background: rgba(255,255,255,0.2); padding: 15px 30px; border-radius: 10px; backdrop-filter: blur(5px); }
+        .btn-open { margin-top: 20px; padding: 12px 25px; background: var(--accent); border: none; color: white; cursor: pointer; border-radius: 30px; font-weight: bold; transition: 0.3s; }
+        .btn-open:hover { transform: scale(1.1); }
+
+        /* MAIN CONTENT */
+        #main-content { display: none; padding-bottom: 50px; }
+
+        section { padding: 80px 20px; text-align: center; max-width: 800px; margin: auto; }
+        h1 { font-family: 'Great Vibes', cursive; font-size: 4rem; color: var(--accent); }
+        h2 { margin-bottom: 20px; }
+
+        /* MUSIC TOGGLE */
+        #music-control {
+            position: fixed; bottom: 20px; right: 20px;
+            background: var(--accent); width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; cursor: pointer; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* AMPLOP DIGITAL */
+        .gift-card {
+            background: white; padding: 20px; border-radius: 15px;
+            margin: 20px auto; max-width: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .copy-btn { background: #7c71ff; color: #fff; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 0.8rem; margin-top: 10px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            section { padding: 50px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AUDIO ELEMENT -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- MUSIC CONTROL -->
+    <div id="music-control" onclick="toggleMusic()">
+        <i id="music-icon" class="fas fa-music"></i>
+    </div>
+
+    <!-- COVER SECTION -->
+    <div id="cover">
+        <h1>Walimatul Khitan</h1>
+		<p>Sabtu, 15 Agustus 2026</p>
+		
+		<div class="profile-container">
+			<img src="ft-1.jpg" alt="Foto Anak" class="profile-img">
+		</div>
+	
+        <h1>Fathir</h1>
+        <div class="guest-box">
+            <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <h2 id="guest-name">Nama Tamu</h2>
+        </div>
+        <button class="btn-open" onclick="openInvitation()">
+            <i class="fas fa-envelope-open-text"></i> Buka Undangan
+        </button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main-content">
+        <section id="home">
+            <p>Assalamu'alaikum Wr. Wb.</p><br>
+            <p>Dengan memohon rahmat Allah SWT, kami mengundang Anda dalam acara khitanan putra kami:</p>
+			
+			<div class="profile-container">
+				<img src="ft-1.jpg" alt="Foto Anak" class="profile-img">
+			</div>
+		
+            <h1> Muhammad Fathir Ramadhanish </h1>
+            <b>Putra dari Bpk. Didin Samsudin<br>Siti Romlah (Iyom)</b>
+        </section>				
+
+        <section id="event" style="background: #eceada;">
+            <h2>Waktu & Tempat</h2>
+            <div style="margin-bottom: 20px;">
+                <i class="fas fa-calendar-alt"></i>
+                <p>Sabtu, 15 Agustus 2026</p>
+                <p>08:00 WIB - Selesai</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Blok Puhun Rt. 05 Rw. 02 Ds. Nanggerang<br>Kec. Jalaksana - Kab. Kuningan</p>
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="btn-open" style="text-decoration: none; display: inline-block;">Lihat Lokasi</a>
+        </section>
+
+		<section>
+			<p>Ya Allah... muliakanlah anak kami panjangkanlah umurnya, 
+				terangilah hatinya. teguhkanlah imannya, 
+				perbaikilah amal perbuatannya. 
+				Lapangkanlah rejekinya, dekatkanlah pada kebaikan
+				dan jauhkanlah dari keburukan
+			</p>
+		</section>
+		
+        <section id="gift" style="background: #d1eee0;">
+            <h2>Amplop Digital</h2>
+            <p>Doa restu Anda merupakan karunia terindah bagi kami. Namun jika ingin memberi tanda kasih, dapat melalui:</p>
+            
+            <div class="gift-card">
+                <i class="fas fa-university" style="font-size: 2rem; color: var(--accent);"></i>
+                <p><strong>Bank BCA</strong></p>
+                <p id="rekening">1234567890</p>
+                <p>A/N Didin Samsudin</p>
+                <button class="copy-btn" onclick="copyText('1234567890')">Salin No. Rekening</button>
+            </div>
+        </section>		
+
+        <section>
+            <p>Atas kehadiran dan doa restunya, kami ucapkan terima kasih.</p>
+            <p>Wassalamu'alaikum Wr. Wb.</p>
+            <br>
+			<p>Keluarga Besar</p>
+			<br>
+            <h2 style="font-family: 'Great Vibes';">Bpk. Didin Samsudin <br> Siti Romlah (Iyom)</h2>
+        </section>
+    </div>
+
+    <script>
+        // 1. CUSTOM GUEST NAME LOGIC
+        // Cara pakai: index.html?to=Nama+Tamu
+        const urlParams = new URLSearchParams(window.location.search);
+        const guest = urlParams.get('to');
+        if (guest) {
+            document.getElementById('guest-name').innerText = guest;
+        }
+
+        // 2. COVER & MUSIC LOGIC
+        const music = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
         let isPlaying = false;
 
-        openBtn.addEventListener('click', () => {
-            // Sembunyikan cover dengan efek slide ke atas
-            coverSection.classList.add('-translate-y-full');
-            setTimeout(() => {
-                coverSection.style.display = 'none';
-            }, 700);
+        function openInvitation() {
+            // Sembunyikan Cover
+            document.getElementById('cover').classList.add('hidden');
+            // Tampilkan Konten
+            document.getElementById('main-content').style.display = 'block';
+            // Play Music
+            playMusic();
+            // Scroll ke atas (opsional)
+            window.scrollTo(0,0);
+        }
 
-            // Putar Musik
-            bgMusic.play().then(() => {
-                isPlaying = true;
-                musicToggle.classList.remove('hidden');
-                updateMusicButton();
-            }).catch(error => {
-                console.log("Autoplay dicegah oleh browser:", error);
+        function playMusic() {
+            music.play();
+            isPlaying = true;
+            musicIcon.classList.remove('fa-music');
+            musicIcon.classList.add('fa-pause');
+        }
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-play');
+            } else {
+                music.play();
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // 3. COPY TO CLIPBOARD
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Nomor rekening berhasil disalin!");
             });
-        });
-
-        // 3. Logika Tombol On/Off Musik Melayang
-        musicToggle.addEventListener('click', () => {
-            if (isPlaying) {
-                bgMusic.pause();
-                isPlaying = false;
-            } else {
-                bgMusic.play();
-                isPlaying = true;
-            }
-            updateMusicButton();
-        });
-
-        function updateMusicButton() {
-            if (isPlaying) {
-                musicToggle.innerHTML = "🔊";
-                musicToggle.classList.add('animate-pulse');
-            } else {
-                musicToggle.innerHTML = "🔇";
-                musicToggle.classList.remove('animate-pulse');
-            }
         }
     </script>
 </body>
