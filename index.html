@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Undangan Tasyakuran Khitanan - Fathir</title>
-
-    <!-- ===== OPEN GRAPH TAGS UNTUK PREVIEW WHATSAPP / SOSMED ===== -->
-    <meta property="og:title" content="Undangan Tasyakuran Khitan - Muhammad Fathir Ramadhanish">
-    <meta property="og:description" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir. Klik untuk buka undangan.">
-    <meta property="og:image" content="https://chugy62.github.io/undangan-didin-iyom/thumbnail.jpg">
-    <meta property="og:url" content="https://chugy62.github.io/undangan-didin-iyom/">
-    <meta property="og:type" content="website">	
-		
+    <!-- ===== OPEN GRAPH TAGS ===== -->
+    <meta property="og:title" content="Undangan Tasyakuran Khitan - Muhammad Fathir Ramadhanish" />
+    <meta property="og:description" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir. Klik untuk buka undangan." />
+    <meta property="og:image" content="https://chugy62.github.io/undangan-didin-iyom/thumbnail.jpg" />
+    <meta property="og:url" content="https://chugy62.github.io/undangan-didin-iyom/" />
+    <meta property="og:type" content="website" />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
     <style>
         :root {
             --primary: #2c3e50;
             --accent: #d4af37;
             --light: #f9f9f9;
+            --white: #ffffff;
         }
 
+        html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--primary); 
-			background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1)), url('bg-3.jpg');			
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed;
-			min-height: 100vh;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
 
-        /* COVER LOGIC */
+        /* Background Global untuk Section */
+        .bg-setup {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('bg-2.jpg');
+            background-size: ;
+            background-position: center top;
+            background-attachment: fixed;
+        }
+
+        /* Navigation Bottom Menu */
+        .bottom-nav {
+            position: fixed;
+            bottom: -100px; /* Sembunyi sebelum dibuka */
+            width: 100%;
+            background: rgba(44, 62, 80, 0.95);
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+            transition: bottom 0.5s ease;
+            border-top: 2px solid var(--accent);
+        }
+        .bottom-nav.active { bottom: 0; }
+        .bottom-nav a { color: #fff; font-size: 1.3rem; text-decoration: none; transition: 0.3s; }
+        .bottom-nav a:hover { color: var(--accent); }
+
+        /* Cover */
         #cover {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100vh;
@@ -45,219 +68,234 @@
             color: white; z-index: 9999; transition: transform 0.8s ease-in-out;
             text-align: center; padding: 20px;
         }
+        #cover.hidden { transform: translateY(-100%); }	
+       
 
-        #cover.hidden { transform: translateY(-100%); }
+        /* Main Content */
+        #main-content { display: none; }
 
-		.profile-container {
-			margin: 20px 0;
-		}
-
-		.profile-img {
-			width: 180px; /* Ukuran lebar */
-			height: 180px; /* Ukuran tinggi harus sama dengan lebar agar bulat sempurna */
-			border-radius: 50%; /* Membuat gambar jadi bulat */
-			border: 4px solid var(--accent); /* Frame emas di sekeliling foto */
-			object-fit: cover; /* Agar foto tidak gepeng jika rasionya beda */
-			box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-		}
-
-		/* Penyesuaian untuk Mobile */
-		@media (max-width: 600px) {
-			.profile-img {
-				width: 150px;
-				height: 150px;
-			}
-		}
-
-		#home {
-			background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1)), url('bg-3.jpg');			
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed;
-			min-height: 100vh;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
-
-		/* Penyesuaian untuk Mobile agar background tidak berat */
-		@media (max-width: 600px) {
-			#home {
-				background-attachment: scroll; /* Matikan fixed di mobile agar smooth */
-			}
-		}
-
-
-        .guest-box { margin-top: 20px; background: rgba(255,255,255,0.2); padding: 15px 30px; border-radius: 10px; backdrop-filter: blur(5px); }
-        .btn-open { margin-top: 20px; padding: 12px 25px; background: var(--accent); border: none; color: white; cursor: pointer; border-radius: 30px; font-weight: bold; transition: 0.3s; }
-        .btn-open:hover { transform: scale(1.1); }
-
-        /* MAIN CONTENT */
-        #main-content { display: none; padding-bottom: 50px; }
-
-        section { padding: 80px 20px; text-align: center; max-width: 800px; margin: auto; }
-        h1 { font-family: 'Great Vibes', cursive; font-size: 4rem; color: var(--accent); }
-        h2 { margin-bottom: 20px; }
-
-        /* MUSIC TOGGLE */
-        #music-control {
-            position: fixed; bottom: 20px; right: 20px;
-            background: var(--accent); width: 50px; height: 50px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: white; cursor: pointer; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        section {
+            padding: 100px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* AMPLOP DIGITAL */
+        h1 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--accent); margin: 15px 0;line-height: 1.2;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);}
+        h2 { font-size: 2rem; margin-bottom: 20px; color: var(--primary); }
+
+        /* Profile Image */
+        .profile-container { margin: 20px 0; }
+        .profile-img {
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Guest Box */
+        .guest-box {
+            margin: 25px 0;
+            background: rgba(255,255,255,0.15);
+            padding: 20px 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Button */
+        .btn-open {
+            padding: 12px 30px;
+            background: var(--accent);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-open:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+
+        /* Map & Cards */
+        .map-container {
+            width: 100%; height: 250px;
+            border-radius: 15px; overflow: hidden;
+            margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
         .gift-card {
-            background: white; padding: 20px; border-radius: 15px;
-            margin: 20px auto; max-width: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: var(--white);
+            padding: 30px; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 350px; width: 100%;
         }
-        .copy-btn { background: #7c71ff; color: #fff; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 0.8rem; margin-top: 10px; }
+        .copy-btn {
+            background: #294a8a;  border: none; padding: 8px 15px; border-radius: 5px;  cursor: pointer;  font-size: 0.8rem;  margin-top: 15px;  color: #fff;  letter-spacing: 1px;
+        }
 
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            section { padding: 50px 15px; }
+        /* Music Control */
+        #music-control {
+            position: fixed; bottom: 85px; right: 20px;
+            background: var(--accent); width: 45px; height: 45px;
+            border-radius: 50%; display: none; align-items: center; justify-content: center;
+            color: white; cursor: pointer; z-index: 1000;
+        }
+
+        /* Responsive */
+        @media(max-width: 600px) {
+            h1 { font-size: 2.8rem; }
+            .profile-img { width: 150px; height: 150px; }
+            section { padding: 60px 20px; }
         }
     </style>
 </head>
-<body>
+<body class="bg-setup">
 
-    <!-- AUDIO ELEMENT -->
+    <!-- Bottom Nav -->
+    <div class="bottom-nav" id="navBar">
+        <a href="#home"><i class="fas fa-home"></i></a>
+        <a href="#event"><i class="fas fa-calendar-alt"></i></a>
+        <a href="#doa"><i class="fas fa-praying-hands"></i></a>
+        <a href="#gift"><i class="fas fa-gift"></i></a>
+    </div>
+
+    <!-- Music -->
     <audio id="bg-music" loop>
-        <source src="music.mp3" type="audio/mp3">
+        <source src="music.mp3" type="audio/mp3" />
     </audio>
-
-    <!-- MUSIC CONTROL -->
     <div id="music-control" onclick="toggleMusic()">
         <i id="music-icon" class="fas fa-music"></i>
     </div>
-
-    <!-- COVER SECTION -->
+ 
+    <!-- Cover -->
     <div id="cover">
-        <h1>Walimatul Khitan</h1>
-		<p>Sabtu, 15 Agustus 2026</p>
-		
-		<div class="profile-container">
-			<img src="ft-1.jpg" alt="Foto Anak" class="profile-img">
-		</div>
-	
+        <p style="letter-spacing: 5px; text-transform: uppercase; font-size: 1rem;">Walimatul Khitan</p>
+		<p style="letter-spacing: 2px; text-transform: uppercase; font-size: .8rem;">Sabtu, 15 Agustus 2026
+        <div class="profile-container">
+            <img src="ft-1.jpg" alt="Fathir" class="profile-img" />
+        </div>
         <h1>Fathir</h1>
         <div class="guest-box">
             <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-            <h2 id="guest-name">Nama Tamu</h2>
+            <h3 id="guest-name" style="font-size: 1.3rem; margin-top: 5px;">Nama Tamu</h3>
         </div>
         <button class="btn-open" onclick="openInvitation()">
             <i class="fas fa-envelope-open-text"></i> Buka Undangan
         </button>
     </div>
 
-    <!-- MAIN CONTENT -->
+    <!-- Main Content -->
     <div id="main-content">
         <section id="home">
-            <p>Assalamu'alaikum Wr. Wb.</p><br>
-            <p>Dengan memohon rahmat Allah SWT, kami mengundang Anda dalam acara khitanan putra kami:</p>
-			
-			<div class="profile-container">
-				<img src="ft-1.jpg" alt="Foto Anak" class="profile-img">
-			</div>
-		
-            <h1> Muhammad Fathir Ramadhanish </h1>
-            <b>Putra dari Bpk. Didin Samsudin<br>Siti Romlah (Iyom)</b>
-        </section>				
-
-        <section id="event" style="background: #eceada;">
-            <h2>Waktu & Tempat</h2>
-            <div style="margin-bottom: 20px;">
-                <i class="fas fa-calendar-alt"></i>
-                <p>Sabtu, 15 Agustus 2026</p>
-                <p>08:00 WIB - Selesai</p>
+            <p>Assalamu'alaikum Wr. Wb.</p>
+            <p style="margin-top: 15px;">Dengan memohon rahmat Allah SWT, kami mengundang Anda dalam acara khitanan putra kami:</p>
+            <div class="profile-container">
+                <img src="ft-1.jpg" alt="Fathir" class="profile-img" />
             </div>
-            <div style="margin-bottom: 20px;">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Blok Puhun Rt. 05 Rw. 02 Ds. Nanggerang<br>Kec. Jalaksana - Kab. Kuningan</p>
-            </div>
-            <a href="https://maps.google.com" target="_blank" class="btn-open" style="text-decoration: none; display: inline-block;">Lihat Lokasi</a>
+            <h1>Muhammad Fathir Ramadhanish</h1>
+            <p><strong>Putra dari:</strong><br />Bpk. Didin Samsudin & Ibu Siti Romlah (Iyom)</p>
         </section>
 
-		<section>
-			<p>Ya Allah... muliakanlah anak kami panjangkanlah umurnya, 
-				terangilah hatinya. teguhkanlah imannya, 
-				perbaikilah amal perbuatannya. 
-				Lapangkanlah rejekinya, dekatkanlah pada kebaikan
-				dan jauhkanlah dari keburukan
-			</p>
-		</section>
-		
-        <section id="gift" style="background: #d1eee0;">
-            <h2>Amplop Digital</h2>
-            <p>Doa restu Anda merupakan karunia terindah bagi kami. Namun jika ingin memberi tanda kasih, dapat melalui:</p>
-            
-            <div class="gift-card">
-                <i class="fas fa-university" style="font-size: 2rem; color: var(--accent);"></i>
-                <p><strong>Bank BCA</strong></p>
-                <p id="rekening">1234567890</p>
-                <p>A/N Didin Samsudin</p>
-                <button class="copy-btn" onclick="copyText('1234567890')">Salin No. Rekening</button>
+        <section id="event" style="background: rgba(255,255,255,0.5);">
+            <h2>Waktu & Tempat</h2>
+            <div style="margin-bottom: 25px;">
+                <i class="fas fa-calendar-check" style="color: var(--accent); font-size: 1.5rem;"></i>
+                <p><strong>Sabtu, 15 Agustus 2026</strong></p>
+                <p>08:00 WIB - Selesai</p>
             </div>
-        </section>		
+            <div style="margin-bottom: 25px;">
+                <i class="fas fa-map-marked-alt" style="color: var(--accent); font-size: 1.5rem;"></i>
+                <p>Blok Puhun Rt. 05 Rw. 02 Ds. Nanggerang</p>
+                <p>Kec. Jalaksana - Kab. Kuningan</p>
+            </div>
+            <a href="https://maps.app.goo.gl/R1vLouWE6EbB8RJk6" target="_blank" class="btn-open">Buka Google Maps</a>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d278.85927345312075!2d108.49277665168654!3d-6.919803120222549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwNTUnMTEuNCJTIDEwOMKwMjknMzQuNCJF!5e1!3m2!1sid!2sid!4v1785750440035!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
 
-        <section>
+        <section id="doa">
+            <i class="fas fa-quote-left" style="color: var(--accent); font-size: 2rem; margin-bottom: 20px;"></i>
+            <p style="font-style: italic; font-size: 1.1rem; padding: 0 10px;">
+                "Ya Allah, muliakanlah anak kami, panjangkanlah umurnya, terangilah hatinya, teguhkanlah imannya, dan perbaikilah amal perbuatannya. Lapangkanlah rezekinya, dekatkanlah pada kebaikan, dan jauhkanlah dari keburukan."
+            </p>
+        </section>
+
+        <section id="gift" style="background: rgba(209, 238, 224, 0.6);">
+            <h2>Amplop Digital</h2>
+            <p style="margin-bottom: 30px;">Doa restu Anda adalah karunia terindah. Jika ingin memberi tanda kasih, dapat melalui:</p>
+            <div class="gift-card">
+                <i class="fas fa-credit-card" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;"></i>
+                <p><strong>Bank BCA</strong></p>
+                <p id="rekening" style="font-size: 1.2rem; font-weight: bold; letter-spacing: 1px;">7015179422</p>
+                <p>A/N Didin Samsudin</p>
+                <button class="copy-btn" onclick="copyText('7015179422')">Salin Rekening</button>
+            </div>
+        </section>
+
+        <section id="akhir">
             <p>Atas kehadiran dan doa restunya, kami ucapkan terima kasih.</p>
-            <p>Wassalamu'alaikum Wr. Wb.</p>
-            <br>
-			<p>Keluarga Besar</p>
-			<br>
-            <h2 style="font-family: 'Great Vibes';">Bpk. Didin Samsudin <br> Siti Romlah (Iyom)</h2>
+            <p style="margin-top: 10px;">Wassalamu'alaikum Wr. Wb.</p>
+            <div style="margin-top: 40px;">
+                <p>Kami yang berbahagia,</p>
+                <h3>Keluarga Bpk. Didin & Ibu Iyom</h3>
+            </div>
         </section>
     </div>
 
     <script>
-        // 1. CUSTOM GUEST NAME LOGIC
-        // Cara pakai: index.html?to=Nama+Tamu
+        // 1. Custom Guest Name logic
         const urlParams = new URLSearchParams(window.location.search);
         const guest = urlParams.get('to');
         if (guest) {
             document.getElementById('guest-name').innerText = guest;
         }
 
-        // 2. COVER & MUSIC LOGIC
+        // 2. Open Invitation Logic
         const music = document.getElementById('bg-music');
-        const musicIcon = document.getElementById('music-icon');
-        let isPlaying = false;
+        const musicControl = document.getElementById('music-control');
+        const navBar = document.getElementById('navBar');
 
         function openInvitation() {
             // Sembunyikan Cover
             document.getElementById('cover').classList.add('hidden');
-            // Tampilkan Konten
+            // Tampilkan Main Content
             document.getElementById('main-content').style.display = 'block';
-            // Play Music
+            // Tampilkan Nav & Music Control
+            navBar.classList.add('active');
+            musicControl.style.display = 'flex';
+            
             playMusic();
-            // Scroll ke atas (opsional)
-            window.scrollTo(0,0);
         }
 
+        // 3. Music Toggle
+        let isPlaying = false;
         function playMusic() {
             music.play();
             isPlaying = true;
-            musicIcon.classList.remove('fa-music');
-            musicIcon.classList.add('fa-pause');
+            document.getElementById('music-icon').classList.replace('fa-music', 'fa-pause');
         }
 
         function toggleMusic() {
+            const icon = document.getElementById('music-icon');
             if (isPlaying) {
                 music.pause();
-                musicIcon.classList.remove('fa-pause');
-                musicIcon.classList.add('fa-play');
+                icon.classList.replace('fa-pause', 'fa-play');
             } else {
                 music.play();
-                musicIcon.classList.remove('fa-play');
-                musicIcon.classList.add('fa-pause');
+                icon.classList.replace('fa-play', 'fa-pause');
             }
             isPlaying = !isPlaying;
         }
 
-        // 3. COPY TO CLIPBOARD
+        // 4. Copy Text
         function copyText(text) {
             navigator.clipboard.writeText(text).then(() => {
                 alert("Nomor rekening berhasil disalin!");
